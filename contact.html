@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a Session | Dr Madri Art</title>
+  <meta name="description" content="Request a booking with Dr Madri. Send a few details and you'll hear back within 1–2 working days.">
+  <meta name="theme-color" content="#194367">
+  <link rel="icon" href="images/madri_icon_1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Outfit:wght@400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="preloader"><div class="preloader-inner"><img class="preloader-icon" src="images/madri_icon_2.png" alt=""><div class="preloader-mark"><span></span><span></span><span></span></div></div></div>
+  <div class="page-fade active"></div>
+  <div class="progress"></div>
+  <div class="cursor-dot"></div><div class="cursor-ring"></div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Dr Madri Art home"><img class="brand-icon" src="images/madri_icon_1.png" alt=""><span class="brand-text">Dr Madri Art</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" class="btn btn-amber active">Book a Session <span class="arrow">→</span></a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="orb a"></div><div class="orb b"></div>
+      <div class="container">
+        <span class="crumbs">Home / Book a Session</span>
+        <h1>Take the <em style="color:var(--amber)">first step</em></h1>
+        <p>Share a few details and Dr Madri will respond within 1–2 working days to arrange your session.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container contact-grid">
+        <div class="form-card reveal left">
+          <h2 style="font-size:2.2rem;margin-bottom:.4rem">Booking request</h2>
+          <p style="margin-bottom:2rem">Fields marked * are required.</p>
+
+          <!-- SET UP: replace YOUR_FORM_ID with your Formspree form ID (see README) -->
+          <form id="booking-form" data-endpoint="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+            <div class="hp"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+            <input type="hidden" name="_subject" value="New booking request — Dr Madri Art website">
+
+            <div class="form-row">
+              <div class="field"><input type="text" id="name" name="name" placeholder=" " autocomplete="name" required><label for="name">Full name *</label><span class="err">Please enter your name.</span></div>
+              <div class="field"><input type="email" id="email" name="email" placeholder=" " autocomplete="email" required><label for="email">Email address *</label><span class="err">Please enter a valid email.</span></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><input type="tel" id="phone" name="phone" placeholder=" " autocomplete="tel"><label for="phone">Phone / WhatsApp</label><span class="err">Please enter a valid number.</span></div>
+              <div class="field select">
+                <select id="service" name="service" required>
+                  <option value="" disabled selected hidden></option>
+                  <option>Individual Session</option>
+                  <option>Child &amp; Teen Session</option>
+                  <option>Palliative Care &amp; Legacy Work</option>
+                  <option>Group Workshop</option>
+                  <option>School, Care Facility or Retreat</option>
+                  <option>Not sure yet</option>
+                </select>
+                <label for="service">Service *</label><span class="err">Please choose a service.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field"><input type="date" id="date" name="preferred_date" placeholder=" "><label for="date" style="top:.4rem;font-size:.72rem;color:var(--amber);font-weight:700;letter-spacing:.06em;text-transform:uppercase">Preferred date</label></div>
+              <div class="field select">
+                <select id="time" name="preferred_time" required>
+                  <option value="" disabled selected hidden></option>
+                  <option>Morning</option><option>Afternoon</option><option>Evening</option><option>Flexible</option>
+                </select>
+                <label for="time">Preferred time</label>
+              </div>
+            </div>
+            <div class="field select">
+              <select id="format" name="area" required>
+                <option value="" disabled selected hidden></option>
+                <option>Ballito</option><option>KwaDukuza / Stanger</option><option>Mtunzini</option><option>Other / to be discussed</option>
+              </select>
+              <label for="format">Preferred area</label>
+            </div>
+            <div class="field"><textarea id="message" name="message" placeholder=" " required></textarea><label for="message">Tell me a little about what brings you here *</label><span class="err">Please share a few words (min 10 characters).</span></div>
+
+            <label class="consent"><input type="checkbox" name="consent" required><span>I consent to my details being used to respond to this request. I understand this form is not for emergencies. *</span></label>
+
+            <button type="submit" class="btn btn-primary">Send booking request <span class="arrow">→</span></button>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <aside class="info-card reveal right">
+          <h3>Contact details</h3>
+          <div class="info-item"><div class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div><strong>Email</strong><a href="mailto:DrMadriArt@gmail.com">DrMadriArt@gmail.com</a></div></div>
+          <div class="info-item"><div class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><strong>Phone / WhatsApp</strong><a href="tel:+27790531024">+27 79 053 1024</a></div></div>
+          <div class="info-item"><div class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong>Location</strong><span>Mobile practice · sessional rooms in Ballito, KwaDukuza/Stanger and Mtunzini (North Coast)</span></div></div>
+          <div class="info-item"><div class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><strong>Sessions</strong><span>By appointment</span></div></div>
+          <div class="note-box">If you or someone you know is in crisis, please contact emergency services or SADAG on 0800 567 567.</div>
+        </aside>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="container">
+        <div class="section-head center reveal"><span class="eyebrow">Before you book</span><h2>Quick answers</h2></div>
+        <div class="faq reveal">
+          <div class="faq-item"><button class="faq-q">How soon will I hear back? <span class="plus">+</span></button><div class="faq-a"><p>Usually within 1–2 working days. You'll receive an email to confirm a time that suits you.</p></div></div>
+          <div class="faq-item"><button class="faq-q">What is your cancellation policy? <span class="plus">+</span></button><div class="faq-a"><p>[Add your cancellation policy here, e.g. 24 hours' notice.]</p></div></div>
+          <div class="faq-item"><button class="faq-q">Do you work with medical aids? <span class="plus">+</span></button><div class="faq-a"><p>[Add medical aid / payment information here.]</p></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><a href="index.html" class="brand" aria-label="Dr Madri Art home"><img class="brand-icon" src="images/madri_icon_1.png" alt=""><span class="brand-text">Dr Madri Art</span></a><p>Art therapy for children, adults and the elderly. Your mark has meaning.</p>
+          <div class="socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="LinkedIn">in</a></div></div>
+        <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li></li></ul></div>
+        <div><h4>Services</h4><ul><li><a href="services.html">Individual Sessions</a></li><li><a href="services.html">Children &amp; Teens</a></li><li><a href="services.html">Palliative Care &amp; Legacy</a></li><li><a href="services.html">Groups &amp; Retreats</a></li></ul></div>
+        <div><h4>Get in touch</h4><ul><li><a href="mailto:DrMadriArt@gmail.com">DrMadriArt@gmail.com</a></li><li><a href="tel:+27790531024">+27 79 053 1024</a></li><li>Ballito · KwaDukuza · Mtunzini</li></ul></div>
+      </div>
+      <p class="crisis-note">This website does not provide emergency support. If you are in crisis, please contact your local emergency services or a crisis helpline (South Africa: SADAG 0800 567 567).</p>
+      <div class="footer-bottom"><span>© <span class="year">2026</span> Dr Madri Art. All rights reserved.</span><span>Your mark has meaning.</span></div>
+    </div>
+  </footer>
+  <button class="to-top" aria-label="Back to top">↑</button>
+  <script src="main.js"></script>
+</body>
+</html>
