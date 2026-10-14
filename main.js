@@ -94,7 +94,7 @@
       let mx = 0, my = 0, rx = 0, ry = 0;
       window.addEventListener("mousemove", (e) => { mx = e.clientX; my = e.clientY; dot.style.transform = `translate(${mx}px,${my}px)`; });
       (function loop() { rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16; ring.style.transform = `translate(${rx}px,${ry}px)`; requestAnimationFrame(loop); })();
-      $$("a, button, .card, .g-item, input, select, textarea, .faq-q").forEach((el) => {
+      $$("a, button, .card, input, select, textarea, .faq-q").forEach((el) => {
         el.addEventListener("mouseenter", () => ring.classList.add("hover"));
         el.addEventListener("mouseleave", () => ring.classList.remove("hover"));
       });
@@ -155,48 +155,10 @@
     go(0); restart();
   }
 
-  /* ---------- Gallery filter + lightbox ---------- */
-  const filterBtns = $$(".filter-btn");
-  const items = $$(".g-item");
-  filterBtns.forEach((btn) => btn.addEventListener("click", () => {
-    filterBtns.forEach((b) => b.classList.remove("active")); btn.classList.add("active");
-    const f = btn.dataset.filter;
-    items.forEach((it) => {
-      const show = f === "all" || it.dataset.cat === f;
-      it.style.opacity = 0; it.style.transform = "scale(.92)";
-      setTimeout(() => { it.classList.toggle("hide", !show); requestAnimationFrame(() => { it.style.opacity = 1; it.style.transform = ""; }); }, 250);
-    });
-  }));
-
-  const lb = $(".lightbox");
-  if (lb) {
-    const inner = $(".lightbox-inner", lb), cap = $(".lightbox-caption", lb);
-    let current = 0;
-    const visible = () => items.filter((i) => !i.classList.contains("hide"));
-    const render = (n) => {
-      const list = visible(); current = (n + list.length) % list.length;
-      const it = list[current];
-      const media = $("img, .ph", it).cloneNode(true);
-      media.style.transform = "";
-      $(".lb-media", inner).replaceChildren(media);
-      cap.textContent = $("h4", it)?.textContent || "";
-    };
-    items.forEach((it) => it.addEventListener("click", () => { render(visible().indexOf(it)); lb.classList.add("open"); document.body.style.overflow = "hidden"; }));
-    const close = () => { lb.classList.remove("open"); document.body.style.overflow = ""; };
-    $(".lb-close", lb).addEventListener("click", close);
-    $(".lb-prev", lb).addEventListener("click", () => render(current - 1));
-    $(".lb-next", lb).addEventListener("click", () => render(current + 1));
-    lb.addEventListener("click", (e) => { if (e.target === lb) close(); });
-    window.addEventListener("keydown", (e) => {
-      if (!lb.classList.contains("open")) return;
-      if (e.key === "Escape") close(); if (e.key === "ArrowRight") render(current + 1); if (e.key === "ArrowLeft") render(current - 1);
-    });
-  }
-
   /* ---------- Booking form ---------- */
   const form = $("#booking-form");
   if (form) {
-    // Pre-select service from URL, e.g. contact.html?service=Online%20Sessions
+    // Pre-select service from URL, e.g. contact.html?service=Group%20Workshop
     const svc = new URLSearchParams(location.search).get("service");
     if (svc) { const sel = $("#service"); [...sel.options].forEach((o) => { if (o.value === svc) sel.value = svc; }); }
 
