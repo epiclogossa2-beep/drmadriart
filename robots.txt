@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://epiclogossa2-beep.github.io/drmadriart/sitemap.xml
